@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Clientes Google Ads · LRK TECH</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3F5F9; --surface:#FFFFFF; --ink:#18203A; --muted:#5B6479; --line:#DCE1EA;
+  --accent:#1F5FD6; --accent-soft:#E6EEFC; --on-accent:#FFFFFF; --orange:#C9620F; --orange-soft:#FDF0E4; --done:#1E8E4E;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#10141F; --surface:#171D2C; --ink:#E8ECF5; --muted:#9AA3B8; --line:#2A3246;
+  --accent:#7FA8FF; --accent-soft:#1D2A48; --on-accent:#10141F; --orange:#F2A35E; --orange-soft:#3A2A1C; --done:#3DC47A;
+}}
+:root[data-theme="dark"]{
+  --bg:#10141F; --surface:#171D2C; --ink:#E8ECF5; --muted:#9AA3B8; --line:#2A3246;
+  --accent:#7FA8FF; --accent-soft:#1D2A48; --on-accent:#10141F; --orange:#F2A35E; --orange-soft:#3A2A1C; --done:#3DC47A;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 120px);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 "Figtree",system-ui,-apple-system,"Segoe UI",sans-serif}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.top-in{max-width:1080px;margin:0 auto;padding:12px 20px}
+.row1{display:flex;align-items:center;gap:14px}
+.brand{font:700 15px/1 "Bricolage Grotesque",sans-serif;white-space:nowrap}
+.bar{flex:1;height:6px;border-radius:6px;background:var(--line);overflow:hidden}
+.bar span{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
+.pct{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.rail{display:flex;gap:8px;overflow-x:auto;padding-top:10px;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.rail a{flex:none;display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:6px 12px;background:var(--surface)}
+.rail a b{font:700 12px/1 "Bricolage Grotesque",sans-serif;color:var(--accent)}
+.rail a.ok{border-color:var(--done);color:var(--done)}
+.rail a.ok b{color:var(--done)}
+main{max-width:1080px;margin:0 auto;padding:36px 20px 64px}
+h1{font:700 clamp(30px,5vw,46px)/1.05 "Bricolage Grotesque",sans-serif;letter-spacing:-.025em;margin:0 0 10px}
+.lead{color:var(--muted);max-width:62ch;margin:0 0 24px}
+.setup{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:12px;align-items:end;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:12px}
+@media (max-width:820px){.setup{grid-template-columns:1fr}}
+label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:6px}
+input[type=text],input[type=url]{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+input:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn{font:600 14px/1 "Figtree",sans-serif;border-radius:10px;padding:12px 16px;cursor:pointer;border:1px solid var(--line);background:transparent;color:var(--ink);white-space:nowrap}
+.note{font-size:13px;color:var(--muted);margin:0 0 36px}
+.phase{position:relative;display:grid;grid-template-columns:64px 1fr;gap:0 18px;padding-bottom:28px}
+.phase::before{content:"";position:absolute;left:31px;top:64px;bottom:0;width:2px;background:var(--line)}
+.phase:last-of-type::before{display:none}
+.num{width:64px;height:64px;border-radius:18px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);font:700 26px/1 "Bricolage Grotesque",sans-serif}
+.phase.ok .num{background:var(--done);color:#fff}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+.head{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-bottom:4px}
+h2{font:700 22px/1.2 "Bricolage Grotesque",sans-serif;margin:0}
+.when{font-size:13px;font-weight:600;color:var(--orange);background:var(--orange-soft);border-radius:999px;padding:4px 10px}
+.count{margin-left:auto;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.goal{color:var(--muted);margin:0 0 14px}
+.steps{list-style:none;margin:0;padding:0}
+.steps li{border-top:1px solid var(--line)}
+.steps label{display:flex;gap:12px;align-items:flex-start;margin:0;padding:10px 0;font-size:15px;font-weight:400;color:var(--ink);cursor:pointer}
+.steps input{margin-top:4px;width:18px;height:18px;flex:none;accent-color:var(--done)}
+.steps input:checked + span{color:var(--muted);text-decoration:line-through}
+.steps .sub{display:block;font-size:13px;color:var(--muted);text-decoration:none}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;padding-top:14px;border-top:1px dashed var(--line)}
+.tool{display:inline-flex;align-items:center;gap:6px;font:600 13px/1 "Figtree",sans-serif;border-radius:999px;padding:8px 12px;border:1px solid var(--accent);color:var(--accent);background:transparent;text-decoration:none;cursor:pointer}
+.tool.off{border-color:var(--line);color:var(--muted);cursor:default}
+.tool::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.warn{margin-top:12px;font-size:14px;background:var(--orange-soft);color:var(--ink);border-radius:10px;padding:10px 12px}
+.diag{width:100%;border-collapse:collapse;font-size:14px;margin-top:12px}
+.diag th,.diag td{text-align:left;padding:8px 10px;border-top:1px solid var(--line);vertical-align:top}
+.diag th{font-size:12px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.tw{overflow-x:auto}
+.toast{position:sticky;bottom:calc(env(safe-area-inset-bottom,0px) + 16px);margin:0 auto;width:max-content;max-width:90%;background:var(--ink);color:var(--bg);font-size:14px;border-radius:10px;padding:10px 14px;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.show{opacity:1}
+@media (max-width:560px){.phase{grid-template-columns:44px 1fr;gap:0 12px}.num{width:44px;height:44px;border-radius:14px;font-size:20px}.phase::before{left:21px;top:44px}.card{padding:16px}}
+@media (prefers-reduced-motion:reduce){.bar span,.toast{transition:none}}
+
+.bar2{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+select,input[type=text],input[type=url],input[type=number],input[type=date],textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+textarea{width:100%;min-height:84px;resize:vertical}
+.q input,.q select{width:100%}
+.sel{min-width:200px;max-width:100%;font-weight:600}
+.btn.primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn.danger{color:#C53B3B;border-color:transparent}
+.save{font-size:13px;color:var(--muted);white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.cc{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;cursor:pointer;text-align:left;font:inherit;color:inherit;display:flex;flex-direction:column;gap:8px}
+.cc:hover{border-color:var(--accent)}
+.cc h3{font:700 19px/1.2 "Bricolage Grotesque",sans-serif;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:6px}
+.pill{font-size:12px;font-weight:600;border-radius:999px;padding:3px 9px;background:var(--accent-soft);color:var(--accent)}
+.pill.o{background:var(--orange-soft);color:var(--orange)}
+.mini{height:5px;border-radius:5px;background:var(--line);overflow:hidden}.mini span{display:block;height:100%;background:var(--accent)}
+.small{font-size:13px;color:var(--muted)}
+.empty{background:var(--surface);border:1px dashed var(--line);border-radius:14px;padding:32px;text-align:center;color:var(--muted)}
+.chead{display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:16px}
+@media (max-width:820px){.chead{grid-template-columns:1fr}}
+.chead input,.chead select{width:100%}
+.tabs{display:flex;gap:6px;margin:0 0 20px;border-bottom:1px solid var(--line)}
+.tab{font:600 15px/1 "Figtree",sans-serif;background:none;border:0;border-bottom:3px solid transparent;color:var(--muted);padding:12px 14px;cursor:pointer}
+.tab[aria-selected=true]{color:var(--accent);border-bottom-color:var(--accent)}
+.bsec{margin-bottom:22px}
+.bsec h2{margin:0 0 10px}
+.q{padding:12px 0;border-top:1px solid var(--line)}.q:first-child{border-top:0;padding-top:0}
+.q > label{font-size:15px;color:var(--ink);font-weight:600;margin-bottom:6px}
+.hint{display:block;font-weight:400;font-size:13px;color:var(--muted)}
+.checks label{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:15px;color:var(--ink);margin:0 0 8px}
+.checks input{margin-top:3px;width:18px;height:18px;accent-color:var(--done)}
+.pot{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
+.pot div{border-left:3px solid var(--accent);padding-left:12px}
+.pot b{display:block;font:700 22px/1.2 "Bricolage Grotesque",sans-serif;font-variant-numeric:tabular-nums}
+.potin{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+@media (max-width:560px){.potin{grid-template-columns:1fr}}
+.potin input{width:100%}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.why{font-size:13px;color:var(--muted);margin:-2px 0 8px;max-width:75ch}
+.ask{margin-top:8px;font-size:14px}
+.ask summary{cursor:pointer;color:var(--accent);font-weight:600;font-size:13px;list-style:none}
+.ask summary::-webkit-details-marker{display:none}
+.ask summary::before{content:"+ "}
+.ask[open] summary::before{content:"− "}
+.ask p{margin:8px 0 0;background:var(--accent-soft);border-radius:8px;padding:8px 10px;color:var(--ink)}
+.ask p + p{margin-top:6px}
+::placeholder{color:var(--muted);opacity:.7}
+</style>
+</head>
+<body>
+<div class="top"><div class="top-in">
+  <div class="row1">
+    <span class="brand">LRK TECH</span>
+    <select class="sel" id="pick" aria-label="Escolher cliente"></select>
+    <button class="btn primary" id="add" type="button">+ Novo cliente</button>
+    <span style="flex:1"></span>
+    <span class="save" id="save"></span>
+  </div>
+  <nav class="rail" id="rail" aria-label="Fases" hidden></nav>
+</div></div>
+<main id="main"><p class="small">Carregando clientes...</p></main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+const DECK = "https://claude.ai/artifact/FjwMyGc4LfxDX8LcADXViu";
+const TXT = {
+ convite: "Oi [nome], tudo bem? Pra eu te mostrar como o Google Ads pode trazer mais clientes pra [empresa], queria marcar uma conversa de 45 minutos. Nela eu entendo o seu negócio, te mostro como funciona e quanto seria o investimento. Qual o melhor dia e horário pra você?",
+ analise: "Sou gestor de tráfego da LRK TECH. Abaixo está o briefing completo de um cliente de Google Ads, preenchido na reunião.\n\nCom base nele, me devolva:\n1. Resumo do negócio e veredito: Google Ads faz sentido? Qual plano recomendo (Tráfego ou Tráfego + Site) e por quê.\n2. Estratégia: serviços prioritários, região, verba diária, CPC máximo inicial e o que a página de destino precisa ter.\n3. Estrutura da campanha: grupos de anúncios, palavras-chave em frase e exata, e negativas.\n4. Para cada grupo: 15 títulos (até 30 caracteres) e 4 descrições (até 90 caracteres).\n5. Sitelinks (texto até 25 caracteres + 2 descrições até 35) e frases de destaque.\n6. Pontos de atenção.\n\nMarque com * tudo que precisa ser confirmado com o cliente. Seja direto e use os números do briefing.\n\nBRIEFING:\n[cole aqui]",
+ semanal: "Oi [nome], resumo da semana no Google Ads: investimos R$ [X], tivemos [X] cliques e [X] contatos. Esta semana eu [ajuste feito]. Como foram esses contatos? Algum virou orçamento ou cliente?",
+ relatorio: "Sou gestor de tráfego da LRK TECH. Monte o relatório do mês [X] da campanha de Google Ads do cliente [empresa].\n\nDados do Google Ads: impressões [X], cliques [X], CTR [X], custo R$ [X], conversões [X], custo por conversão R$ [X], parcela de impressões perdida por orçamento [X]% e por classificação [X]%, principais termos de pesquisa: [lista].\n\nDados da planilha do cliente: leads [X], do perfil certo [X], orçamentos [X], vendas [X], valor vendido R$ [X].\n\nAjustes que fiz no mês: [lista].\n\nMe devolva:\n1. O funil com a taxa entre cada etapa.\n2. Custo por lead e custo por venda (considerando verba + gestão de R$ [X]).\n3. Onde está travando e por quê.\n4. Plano do próximo mês.\n5. Um texto curto e simples para eu mandar ao cliente no WhatsApp."
+};
+const PHASES = [
+ {id:"contato", t:"Primeiro contato", when:"Dia 0", goal:"Descobrir se vale a reunião e marcar.",
+  steps:[
+   ["Qualificar o cliente","Vende algo que as pessoas pesquisam no Google? Tem quem responda os contatos? Tem pelo menos R$ 1.000/mês para anúncio?"],
+   ["Avaliar o site dele","Rápido no celular, WhatsApp visível, página do serviço? Isso já indica o plano: Tráfego ou Tráfego + Site."],
+   ["Pesquisar o serviço + cidade no Google","Veja quem anuncia. Vira argumento na reunião."],
+   ["Marcar reunião de 45 minutos","Online, com quem decide."]],
+  tools:[["copy","Mensagem de convite","convite"]]},
+ {id:"reuniao", t:"Reunião e fechamento", when:"Dias 1 a 3", goal:"Entender o negócio, apresentar e fechar na mesma conversa.",
+  steps:[
+   ["Diagnóstico (15 min)","Preencha a aba Briefing junto com o cliente. Priorize os números: ticket, retenção, taxa de fechamento."],
+   ["Mostrar o potencial","Use a calculadora no final do Briefing com os números dele."],
+   ["Apresentação (15 min)","Como funciona, planos, custos, cartão, 3 meses."],
+   ["Recomendar o plano","Tráfego se o site é bom; Tráfego + Site se não tem ou não converte."],
+   ["Fechar","Contrato digital (ZapSign ou gov.br) + Pix da 1ª mensalidade. No plano com site, 50% do site."],
+   ["Conferir o briefing salvo","Tudo fica salvo no cliente automaticamente."]],
+  tools:[["brief","Abrir briefing"],["link","Apresentação",DECK]],
+  warn:"Pediu pra pensar? Mande a proposta escrita no dia seguinte e retome em 2 dias."},
+ {id:"analise", t:"Análise e planejamento", when:"Mesmo dia", goal:"Transformar o briefing na campanha.",
+  steps:[
+   ["Copiar prompt + briefing e colar no Claude","Você recebe estratégia, palavras, negativas, anúncios e sitelinks."],
+   ["Validar no Planejador de Palavras-chave","Corte palavras com volume quase zero ou CPC alto demais para a verba."],
+   ["Confirmar com o cliente os itens marcados com *","Números, anos de mercado, avaliações, diferenciais."]],
+  tools:[["copy","Prompt + briefing","analise"]]},
+ {id:"onboarding", t:"Onboarding e configuração", when:"Dias 1 a 7 (10 com site)", goal:"Deixar tudo pronto e rastreado antes de gastar R$ 1.",
+  steps:[
+   ["Criar a conta do cliente na sua MCC","Ou vincular a que ele já tem."],
+   ["Cliente cadastra o cartão da empresa","Ou pagamento antecipado por boleto/Pix."],
+   ["Pegar acessos","Site, Google Meu Negócio, Analytics."],
+   ["Página de destino pronta","Título igual à pesquisa, WhatsApp com “vim pelo Google”, prova de confiança, rápida no celular."],
+   ["Rastreamento","Tag Manager + GA4 + conversões: clique no WhatsApp, formulário, ligação."],
+   ["Vincular Google Meu Negócio e GA4 ao Google Ads",""],
+   ["Enviar a planilha de controle de leads","Para quem atende os contatos."],
+   ["Montar a campanha no Modo Especialista","Um grupo por serviço, palavras em frase e exata, negativas, 15 títulos, 4 descrições, sitelinks, frases de destaque."],
+   ["Configurar","Só rede de pesquisa, local em “Presença”, Maximizar cliques com CPC máximo, orçamento diário."],
+   ["Cliente aprova palavras e anúncios",""]],
+  tools:[["plan","Planilha de leads"]]},
+ {id:"lancamento", t:"Lançamento", when:"Dia 7 ou 10", goal:"Ligar a campanha e garantir que tudo funciona.",
+  steps:[
+   ["Ativar e conferir se os anúncios foram aprovados",""],
+   ["Testar o caminho completo","Pesquisa, clique, página, WhatsApp, conversão registrada."],
+   ["Programar relatório semanal por email e regra de alerta","Ex.: email se gastar R$ 300 sem conversão."],
+   ["Avisar o cliente que está no ar",""]]},
+ {id:"mes1", t:"Primeiro mês", when:"Semanas 1 a 4", goal:"Filtrar, ajustar e manter o cliente por perto.",
+  steps:[
+   ["Semana 1: conferir todo dia que nada quebrou","E negativar bastante no relatório de termos de pesquisa."],
+   ["Semana 2: negativas, palavras novas, CPC","Adicione termos bons que apareceram; ajuste o CPC máximo se aparece pouco ou paga caro."],
+   ["Semana 3: pausar o que gasta sem contato","Confira também locais e horários."],
+   ["Toda semana: mensagem ao cliente","Números da semana + pergunta sobre os contatos."],
+   ["Semana 4: pedir a planilha de leads preenchida",""]],
+  tools:[["copy","Mensagem semanal","semanal"]],
+  warn:"No primeiro mês não mexa em verba, estratégia de lance nem estrutura."},
+ {id:"relatorio", t:"Relatório do primeiro mês", when:"Dia 30", goal:"Mostrar o resultado e o plano do mês 2.",
+  steps:[
+   ["Juntar os dados do Google Ads e da planilha do cliente",""],
+   ["Montar o funil e o custo por venda","Com o prompt de relatório no Claude."],
+   ["Identificar onde trava","Use a tabela abaixo."],
+   ["Reunião de 20 min com o cliente","Resultado, o que foi ajustado e o plano do mês 2."],
+   ["Cobrar a mensalidade do mês 2",""]],
+  tools:[["copy","Prompt de relatório","relatorio"]],
+  diag:true},
+ {id:"escala", t:"Meses 2 e 3", when:"Dias 31 a 90", goal:"Otimizar para venda e crescer.",
+  steps:[
+   ["Mês 2: ajustar pelo custo por venda","Mais verba no que vende, pausar o que só traz lead ruim."],
+   ["Trocar para Maximizar conversões","Depois de 15 a 30 conversões. Espere 2 semanas sem mexer."],
+   ["Mês 3: avaliar o resultado real",""],
+   ["Aumentar a verba em degraus de 20%","Se o custo por venda compensar e houver parcela perdida por orçamento."],
+   ["Oferecer o próximo passo","Novo serviço, Meta Ads, automação de WhatsApp, renovação."]]}
+];
+const DIAG = [["Impressões → cliques","Anúncio não convence","Títulos e descrições"],["Cliques → leads","Página não convence","Página e botão de WhatsApp"],["Leads → perfil certo","Atraindo gente errada","Palavras, negativas, região"],["Perfil certo → vendas","Atendimento","Levar os dados ao cliente"]];
+
+const BRIEF = [
+ ["Contato",[
+  ["responsavel","Nome de quem decide","text","Com quem você fecha o contrato e fala toda semana.","Quem decide sobre o investimento em anúncio aqui na empresa?","Diego, sócio"],
+  ["whatsapp","WhatsApp do responsável","text","Para o convite, as mensagens semanais e o relatório.","","(47) 99999-0000"],
+  ["data_reuniao","Data da reunião","date","",""]]],
+ ["Negócio",[
+  ["servicos","Quais serviços querem anunciar, em ordem de prioridade?","area","Cada serviço vira um grupo de anúncios. Com verba pequena, comece com 1 ou 2, priorizando o que dá mais lucro ou vira contrato mensal.","Se eu só pudesse anunciar um serviço, qual traria mais resultado pra vocês? E o segundo?","1º Abertura de empresa (vira mensalidade). 2º Troca de contador."],
+  ["segmento","Tem um tipo de cliente em que são especialistas?","text","Especialidade diferencia e costuma ter clique mais barato. Pode virar um grupo de anúncios próprio.","Que tipo de empresa vocês mais atendem hoje? Tem algum ramo que vocês entendem melhor que os outros escritórios?","Sim, clínicas e consultórios (uns 40% dos clientes). Ou: não, atendemos de tudo."],
+  ["regiao","Quais cidades ou bairros vocês atendem de verdade?","text","Define onde o anúncio aparece. Região maior que a real gasta verba com quem nunca vai virar cliente.","Se alguém de uma cidade vizinha chamar, vocês atendem? Presencial ou só online?","Joinville inteira, Araquari e Guaramirim. Fora disso, só online."],
+  ["endereco","Endereço da empresa","text","Aparece no anúncio e ajuda a definir o raio de alcance.","","Rua Alasca, 185, Floresta, Joinville"],
+  ["horario","Horário de atendimento","text","Define quando o botão de ligar aparece no anúncio.","","Seg a sex, 8h às 18h"],
+  ["fim_semana","Atendem fim de semana?","select","Se não atendem, o anúncio pode rodar, mas o lead precisa de resposta na segunda cedo.","","",["Não","Sábado","Sábado e domingo"]],
+  ["epoca","Tem época do ano em que vende mais? Por quê?","text","Antes da época forte, vale aumentar a verba. Na fraca, dá para reduzir.","Tem algum mês em que chega muito mais cliente? Por que acontece?","Novembro a janeiro, quando o pessoal quer abrir empresa para começar o ano."]]],
+ ["Clientes",[
+  ["cliente_ideal","Como é o cliente ideal de vocês?","area","Ajuda a escolher palavras-chave e a escrever anúncios que atraem quem compra.","Pensa no melhor cliente que vocês têm hoje. Que tipo de empresa é, de que tamanho, quanto paga?","Empresa de serviços com 2 a 10 funcionários, no Simples Nacional, pagando R$ 600 por mês."],
+  ["problema","Quais são os 3 problemas mais comuns de quem procura vocês?","area","As pessoas pesquisam o problema, não o serviço. Cada problema vira palavra-chave, título de anúncio e, às vezes, um grupo próprio.","Quando alguém chega pela primeira vez, o que ele fala? Qual é a dor dele? Anote com as palavras dele.","1. “Quero abrir minha empresa e não sei por onde começar.” 2. “Meu contador não me responde.” 3. “Meu MEI passou do limite.”"],
+  ["pesquisa","O que eles digitariam no Google para achar vocês?","area","Ponto de partida das palavras-chave. Depois você valida no Planejador de Palavras-chave.","Se você fosse o cliente, o que digitaria no Google para encontrar um serviço como o de vocês?","contador em joinville, abrir empresa joinville, trocar de contador"],
+  ["diferencial","Por que os clientes escolhem vocês e não o concorrente?","area","Vira os títulos que fazem a pessoa clicar no seu anúncio e não no do lado.","Quando um cliente fecha com vocês, o que ele diz que pesou na decisão? O que vocês fazem que os outros não fazem?","Atendimento presencial, respondemos no mesmo dia, 15 anos de mercado."],
+  ["nao_atendem","O que vocês não atendem ou não querem?","area","Vira palavra negativa, para não pagar clique de quem nunca vai fechar.","Tem algum serviço ou tipo de cliente que vocês recusam ou preferem evitar?","Não fazemos imposto de renda de pessoa física. MEI só se for para virar ME depois."]]],
+ ["Números",[
+  ["ticket","Valor médio de uma venda ou mensalidade (R$)","number","Base da calculadora de potencial. Não é o meio entre o menor e o maior preço: é o faturamento dividido pelo número de vendas.","Quanto vocês faturaram nos últimos 3 meses e quantas vendas foram? Se não souber, pegue as últimas 10 vendas e tire a média.","600"],
+  ["vendas_mes","Quantos clientes novos fecham por mês hoje, sem anúncio?","number","É o ponto de partida. No relatório do 3º mês, você compara o antes e o depois.","Nos últimos 3 meses, quantos clientes novos vocês fecharam? (Divida por 3.)","4"],
+  ["retencao","Quantos meses, em média, um cliente fica?","number","Junto com o ticket, mostra quanto vale um cliente. Se é venda única, coloque 1.","Um cliente que entra hoje costuma ficar quanto tempo com vocês?","24"],
+  ["fechamento","De cada 10 pessoas que pedem orçamento, quantas fecham?","number","Mostra quantos leads o anúncio precisa trazer para cada venda. De 0 a 10.","Pensando nos últimos pedidos de orçamento, de cada 10, quantos viraram cliente?","3"],
+  ["paga_cliente","Até quanto vale investir para conquistar um cliente novo? (R$)","number","Vira a meta de custo por cliente. Referência: 5% a 10% do valor total de um cliente (ticket × meses que fica).","Um cliente vale [ticket × meses] pra vocês. Até quanto faz sentido investir para ganhar um cliente desses?","800"],
+  ["meta","Quantos clientes novos por mês seria um bom resultado?","number","Alinha a expectativa. Comparado com as vendas de hoje, +3 a +5 por mês é uma meta realista para começar.","Se o anúncio trouxesse quantos clientes novos por mês, vocês ficariam satisfeitos?","5"],
+  ["capacidade","Quantos clientes novos por mês conseguem atender?","number","Não adianta trazer mais leads do que a equipe dá conta de atender.","Se chegassem 20 clientes novos no mês que vem, vocês dariam conta? E 10?","10"]]],
+ ["Atendimento",[
+  ["canal","Principal canal de contato com o cliente","select","É para onde o anúncio vai levar a pessoa.","","",["WhatsApp","Telefone","Formulário no site","Outro"]],
+  ["telefone","Telefone ou WhatsApp que vai no anúncio","text","Precisa ser um número que alguém atende no horário comercial.","","(47) 3000-0000"],
+  ["quem_responde","Quem responde os contatos?","text","Se ninguém é responsável, o lead fica sem resposta.","Quando chega mensagem no WhatsApp, quem responde?","A Carla, da recepção."],
+  ["tempo_resposta","Em quanto tempo costumam responder?","select","Lead respondido depois de horas esfria e fecha com o concorrente. A meta é até 1 hora.","Quando chega uma mensagem às 10h, a pessoa recebe resposta até que horas?","",["Até 15 minutos","Até 1 hora","No mesmo dia","Mais que isso"]]]],
+ ["Mercado e anúncio",[
+  ["concorrentes","Quais concorrentes vocês conhecem?","area","Você pesquisa os anúncios deles para escrever algo melhor.","Quem vocês mais encontram disputando cliente? Algum aparece anunciando no Google?","Contabilizei, Escritório X no Centro."],
+  ["avaliacoes","Avaliações no Google: quantas e qual a nota?","text","Nota boa vira título (“Nota 4,9 no Google”). Com poucas avaliações, peça aos clientes atuais antes de começar.","","38 avaliações, nota 4,8"],
+  ["preco","Podemos mostrar preço no anúncio?","select","Preço filtra antes do clique: quem acha caro nem clica e você não paga por ele. “A partir de” é o meio-termo.","Muita gente chega só perguntando preço e some? Vocês se sentem confortáveis em mostrar um valor inicial?","",["Sim","Não","Só “a partir de”"]],
+  ["preco_valor","Se sim, qual valor mostrar?","text","Use o valor de entrada do serviço anunciado.","","A partir de R$ 400 por mês"],
+  ["restricoes","Tem algo que não querem no anúncio?","area","Evita retrabalho na aprovação dos anúncios.","Tem alguma palavra, promessa ou assunto que vocês não querem ver no anúncio?","Não citar concorrentes, não prometer economia de imposto."]]],
+ ["Site, histórico e verba",[
+  ["site","Vocês têm site? Qual o endereço?","text","Define o plano: site bom = Tráfego; sem site ou site ruim = Tráfego + Site.","Abra o site no celular junto com o cliente: carrega rápido? O WhatsApp aparece fácil? Tem página do serviço?","bbassessoria.com.br (lento, sem botão de WhatsApp)"],
+  ["pagina","Página de destino","select","Para onde vai quem clica no anúncio.","","",["Usar página existente","Criar página nova (LRK TECH)","Ainda não sei"]],
+  ["historico","Já anunciaram no Google? Como foi?","area","Evita repetir erros. Se existir conta antiga, o histórico dela ajuda.","Já fizeram anúncio antes? Quem fez, quanto investiam e por que pararam?","Uma agência fez em 2024, R$ 1.000 por mês, trazia muito curioso."],
+  ["verba","Quanto querem investir por mês em anúncio? (R$)","number","Pago direto ao Google, no cartão da empresa, separado da gestão. Recomendado a partir de R$ 1.500.","Quanto vocês se sentem confortáveis em investir por mês em anúncio, separado do meu valor?","1500"]]],
+ ["Acessos",[
+  ["acessos","O que já está combinado","checks","Marque conforme o cliente for liberando.","","",["Conta Google Ads criada ou vinculada à minha MCC","Cartão da empresa cadastrado no Google Ads","Acesso ao site","Acesso de gerente ao Google Meu Negócio","Acesso ao Google Analytics (se tiver)","Planilha de controle de leads enviada"]],
+  ["aprovador","Quem aprova os anúncios do lado deles?","text","Para saber para quem mandar as palavras e os anúncios antes de ir ao ar.","","O Diego"]]],
+ ["Fechamento",[
+  ["resultado","Resultado da reunião","select","","","",["Fechou","Vai pensar","Não fechou"]],
+  ["retorno","Data combinada para retorno ou início","date","",""],
+  ["obs","Observações","area","Qualquer detalhe que não coube acima.","",""]]]
+];
+const STATUS = ["Prospecção","Reunião marcada","Fechado","Em configuração","No ar","Pausado","Perdido"];
+const PLANOS = ["A definir","Tráfego","Tráfego + Site"];
+
+const LKEY = "lrk-clientes-google-ads";
+let store = null, clients = {}, cur = null, tab = "processo", timers = {}, saving = {}, pending = {};
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const brl = n => n.toLocaleString("pt-BR",{style:"currency",currency:"BRL",maximumFractionDigits:0});
+const nid = () => "c" + Date.now().toString(36) + Math.random().toString(36).slice(2,6);
+function toast(m){ const t=$("toast"); t.textContent=m; t.classList.add("show"); clearTimeout(toast.h); toast.h=setTimeout(()=>t.classList.remove("show"),2200); }
+function setSave(m){ $("save").textContent = m; }
+
+/* ---------- armazenamento ---------- */
+function localAll(){ try { return JSON.parse(localStorage.getItem(LKEY)||"{}")||{}; } catch(e){ return {}; } }
+function localPut(){ try { localStorage.setItem(LKEY, JSON.stringify(clients)); } catch(e){} }
+async function initStore(){
+  try {
+    const [db, user] = await Promise.all([claude.use("db"), claude.use("user")]);
+    const uid = db && user ? await user.id() : null;
+    if (db && uid) {
+      const col = db.collection("data/users/" + uid);
+      store = {
+        async all(){ const s = await col.get(); const o = {}; s.docs.forEach(d => { const v = d.data(); if (v && v.kind === "cliente") o[d.id] = JSON.parse(JSON.stringify(v)); }); return o; },
+        async put(c){ await col.doc(c.id).set(c); },
+        async del(id){ await col.doc(id).delete(); }
+      };
+    }
+  } catch(e) { store = null; }
+  if (store) {
+    try { clients = await store.all(); } catch(e) { store = null; clients = localAll(); }
+    if (store && !Object.keys(clients).length) {
+      const loc = localAll();
+      for (const c of Object.values(loc)) { clients[c.id] = c; try { await store.put(c); } catch(e){} }
+    }
+  } else clients = localAll();
+  if (!Object.keys(clients).length) {
+    try { const old = JSON.parse(localStorage.getItem("lrk-processo-google-ads")||"null");
+      if (old && (old.cliente || Object.keys(old.checks||{}).length)) { const c = newClient(old.cliente || "Cliente 1"); c.checks = old.checks || {}; c.planilha = old.planUrl || ""; clients[c.id] = c; persist(c.id, true); }
+    } catch(e){}
+  }
+  setSave(store ? "Salvo na sua conta" : "Salvo neste navegador");
+  const last = (()=>{ try { return localStorage.getItem(LKEY+"-cur"); } catch(e){ return null; } })();
+  cur = last && clients[last] ? last : null;
+  render();
+}
+function newClient(nome){ const t = Date.now(); return {id:nid(), kind:"cliente", nome, status:"Prospecção", plano:"A definir", planilha:"", checks:{}, briefing:{}, pot:{cpc:5, conv:8, gestao:800}, criado:t, atualizado:t}; }
+function persist(id, now){
+  const c = clients[id]; if (!c) return; c.atualizado = Date.now(); localPut();
+  if (!store) { setSave("Salvo neste navegador"); return; }
+  clearTimeout(timers[id]); setSave("Salvando...");
+  timers[id] = setTimeout(async () => {
+    if (saving[id]) { pending[id] = true; return; }
+    saving[id] = true;
+    try { await store.put(JSON.parse(JSON.stringify(clients[id]))); setSave("Salvo na sua conta"); }
+    catch(e) { setSave("Não salvou na conta, salvo neste navegador"); }
+    saving[id] = false;
+    if (pending[id]) { pending[id] = false; persist(id, true); }
+  }, now ? 0 : 700);
+}
+
+/* ---------- progresso ---------- */
+function prog(c){ let t=0,d=0,fase=PHASES[0].t; let found=false;
+  PHASES.forEach(p => { const n=p.steps.length, k=p.steps.filter((_,i)=>c.checks[`${p.id}-${i}`]).length; t+=n; d+=k; if(!found && k<n){ fase=p.t; found=true; } });
+  return {pct: Math.round(d/t*100), fase: found ? fase : "Concluído"}; }
+
+/* ---------- render ---------- */
+function renderPick(){
+  const list = Object.values(clients).sort((a,b)=>a.nome.localeCompare(b.nome,"pt-BR"));
+  $("pick").innerHTML = `<option value="">Todos os clientes (${list.length})</option>` + list.map(c=>`<option value="${c.id}" ${c.id===cur?"selected":""}>${esc(c.nome)}</option>`).join("");
+}
+function render(){
+  renderPick(); try { localStorage.setItem(LKEY+"-cur", cur||""); } catch(e){}
+  $("rail").hidden = !(cur && tab==="processo");
+  if (!cur) return renderHome();
+  renderClient();
+}
+function renderHome(){
+  const list = Object.values(clients).sort((a,b)=>b.atualizado-a.atualizado);
+  let h = `<h1>Clientes</h1><p class="lead">Escolha um cliente para ver o processo e o briefing dele, ou crie um novo.</p>`;
+  if (!list.length) h += `<div class="empty"><p>Nenhum cliente ainda.</p><button class="btn primary" type="button" data-act="add">+ Novo cliente</button></div>`;
+  else h += `<div class="grid">` + list.map(c => { const p = prog(c); return `<button class="cc" type="button" data-open="${c.id}"><h3>${esc(c.nome)}</h3><div class="meta"><span class="pill">${esc(c.status)}</span>${c.plano!=="A definir"?`<span class="pill o">${esc(c.plano)}</span>`:""}</div><div class="mini"><span style="width:${p.pct}%"></span></div><span class="small">${p.pct}% · ${esc(p.fase)}</span></button>`; }).join("") + `</div>`;
+  $("main").innerHTML = h;
+}
+function renderClient(){
+  const c = clients[cur]; const p = prog(c);
+  let h = `<div class="chead">
+    <div><label for="f-nome">Empresa</label><input id="f-nome" type="text" value="${esc(c.nome)}"></div>
+    <div><label for="f-status">Status</label><select id="f-status">${STATUS.map(s=>`<option ${s===c.status?"selected":""}>${s}</option>`).join("")}</select></div>
+    <div><label for="f-plano">Plano</label><select id="f-plano">${PLANOS.map(s=>`<option ${s===c.plano?"selected":""}>${s}</option>`).join("")}</select></div>
+    <div><label for="f-plan">Link da planilha de leads</label><input id="f-plan" type="url" placeholder="Cole o link do Google Planilhas" value="${esc(c.planilha)}"></div>
+  </div>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" type="button" data-tab="processo" aria-selected="${tab==="processo"}">Processo · ${p.pct}%</button>
+    <button class="tab" role="tab" type="button" data-tab="briefing" aria-selected="${tab==="briefing"}">Briefing</button>
+  </div><div id="pane"></div>
+  <div class="actions" style="margin-top:28px"><button class="btn danger" type="button" data-act="del">Excluir cliente</button></div>`;
+  $("main").innerHTML = h;
+  tab === "processo" ? renderProcess(c) : renderBrief(c);
+}
+function toolHtml(tl, c){
+  const [kind,label,arg] = tl;
+  if (kind === "copy") return `<button class="tool" type="button" data-copy="${arg}">Copiar: ${label}</button>`;
+  if (kind === "link") return `<a class="tool" href="${arg}" target="_blank" rel="noopener">${label}</a>`;
+  if (kind === "brief") return `<button class="tool" type="button" data-tab="briefing">${label}</button>`;
+  return c.planilha ? `<a class="tool" href="${esc(c.planilha)}" target="_blank" rel="noopener">${label}</a>` : `<span class="tool off">${label} (cole o link no topo)</span>`;
+}
+function renderProcess(c){
+  $("rail").innerHTML = PHASES.map((p,i)=>`<a href="#${p.id}" data-rail="${p.id}"><b>${i+1}</b>${p.t}</a>`).join("");
+  let h = "";
+  PHASES.forEach((p,i) => {
+    h += `<section class="phase" id="${p.id}"><div class="num" aria-hidden="true">${i+1}</div><div class="card"><div class="head"><h2>${p.t}</h2><span class="when">${p.when}</span><span class="count" id="c-${p.id}"></span></div><p class="goal">${p.goal}</p><ul class="steps">`;
+    p.steps.forEach(([a,b],k) => { const id = `${p.id}-${k}`; h += `<li><label><input type="checkbox" data-step="${id}" ${c.checks[id]?"checked":""}><span>${a}${b?`<span class="sub">${b}</span>`:""}</span></label></li>`; });
+    h += `</ul>`;
+    if (p.diag) h += `<div class="tw"><table class="diag"><tr><th>Onde cai muito</th><th>Problema</th><th>O que ajustar</th></tr>${DIAG.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("")}</table></div>`;
+    if (p.warn) h += `<div class="warn">${p.warn}</div>`;
+    if (p.tools) h += `<div class="tools">${p.tools.map(t=>toolHtml(t,c)).join("")}</div>`;
+    h += `</div></section>`;
+  });
+  $("pane").innerHTML = h; updateProg(c);
+}
+function updateProg(c){
+  PHASES.forEach(p => { const n=p.steps.length, d=p.steps.filter((_,k)=>c.checks[`${p.id}-${k}`]).length;
+    const el=$("c-"+p.id); if (el) el.textContent=`${d} de ${n}`; const s=$(p.id); if (s) s.classList.toggle("ok", d===n);
+    const r=document.querySelector(`[data-rail="${p.id}"]`); if (r) r.classList.toggle("ok", d===n); });
+  const pr = prog(c);
+  const t = document.querySelector('[data-tab="processo"].tab'); if (t) t.textContent = `Processo · ${pr.pct}%`;
+}
+function fieldHtml([key,label,type,why,ask,ex,opt], b){
+  const v = b[key] ?? "";
+  const whyH = why ? `<p class="why">${why}</p>` : "";
+  const ph = ex ? ` placeholder="Ex.: ${esc(ex)}"` : "";
+  let det = "";
+  if (ask || ex) det = `<details class="ask"><summary>Como perguntar${ex ? " e exemplo" : ""}</summary>${ask ? `<p><b>Pergunte:</b> “${ask}”</p>` : ""}${ex ? `<p><b>Exemplo de resposta:</b> ${esc(ex)}</p>` : ""}</details>`;
+  if (type === "checks") return `<div class="q"><label>${label}</label>${whyH}<div class="checks">${opt.map(o=>`<label><input type="checkbox" data-bchk="${key}" value="${esc(o)}" ${(Array.isArray(v)&&v.includes(o))?"checked":""}>${esc(o)}</label>`).join("")}</div></div>`;
+  let f;
+  if (type === "area") f = `<textarea id="b-${key}" data-b="${key}"${ph}>${esc(v)}</textarea>`;
+  else if (type === "select") f = `<select id="b-${key}" data-b="${key}"><option value="">Selecione</option>${opt.map(o=>`<option ${o===v?"selected":""}>${esc(o)}</option>`).join("")}</select>`;
+  else f = `<input id="b-${key}" data-b="${key}" type="${type==="number"?"number":type==="date"?"date":"text"}" ${type==="number"?'min="0" inputmode="decimal"':""}${ph} value="${esc(v)}">`;
+  return `<div class="q"><label for="b-${key}">${label}</label>${whyH}${f}${det}</div>`;
+}
+function renderBrief(c){
+  const b = c.briefing;
+  let h = BRIEF.map(([name,fs],i)=>`<section class="bsec"><div class="card"><h2>${i+1}. ${name}</h2>${fs.map(f=>fieldHtml(f,b)).join("")}</div></section>`).join("");
+  h += `<section class="bsec"><div class="card"><h2>Potencial estimado</h2><div class="pot" id="pot"></div>
+    <div class="potin"><div><label for="p-gestao">Gestão LRK TECH (R$/mês)</label><input id="p-gestao" data-p="gestao" type="number" min="0" value="${c.pot.gestao}"></div>
+    <div><label for="p-cpc">CPC estimado (R$)</label><input id="p-cpc" data-p="cpc" type="number" min="0" step="0.5" value="${c.pot.cpc}"></div>
+    <div><label for="p-conv">Conversão da página (%)</label><input id="p-conv" data-p="conv" type="number" min="0" max="100" value="${c.pot.conv}"></div></div>
+    <p class="small" style="margin:12px 0 0">Projeção pelos números informados, sem contar cancelamentos. Serve para conversar na reunião, não é garantia de resultado.</p></div></section>
+    <div class="actions"><button class="btn primary" type="button" data-copy="analise">Copiar prompt + briefing para o Claude</button><button class="btn" type="button" data-copy="briefing">Copiar só o briefing</button></div>`;
+  $("pane").innerHTML = h; renderPot(c);
+}
+function potCalc(c){
+  const n = k => { const v = parseFloat(String(c.briefing[k] ?? "").replace(",",".")); return isNaN(v)?0:v; };
+  const verba=n("verba"), ticket=n("ticket"), ret=Math.max(n("retencao"),1), fech=n("fechamento")/10;
+  const gestao=+c.pot.gestao||0, cpc=+c.pot.cpc||0, conv=(+c.pot.conv||0)/100;
+  const cliques=cpc?verba/cpc:0, leads=cliques*conv, clientes=leads*fech, custo=verba+gestao, valor=ticket*ret;
+  let payback="-";
+  if (clientes>0 && ticket>0){ let rec=0,cst=0,at=0; for(let m=1;m<=24;m++){ at+=clientes; rec+=Math.min(at,clientes*ret)*ticket; cst+=custo; if(rec>=cst){payback=m+"º mês";break;} } if(payback==="-") payback="+ de 24 meses"; }
+  return [[Math.round(cliques),"cliques por mês"],[Math.round(leads),"contatos por mês"],[clientes.toLocaleString("pt-BR",{maximumFractionDigits:1}),"clientes novos por mês"],
+    [leads?brl(verba/leads):"-","custo por contato"],[clientes?brl(custo/clientes):"-","custo por cliente (com gestão)"],[valor?brl(valor):"-","valor de um cliente"],[payback,"investimento se paga no"]];
+}
+function renderPot(c){ const el=$("pot"); if (el) el.innerHTML = potCalc(c).map(([b,s])=>`<div><b>${b}</b><span class="small">${s}</span></div>`).join(""); }
+function briefText(c){
+  let t = `BRIEFING GOOGLE ADS\nEmpresa: ${c.nome}\nPlano: ${c.plano}\n`;
+  BRIEF.forEach(([name,fs]) => { const lines = fs.map(([k,l]) => { const v=c.briefing[k]; const s=Array.isArray(v)?v.join("; "):String(v??"").trim(); return s?`- ${l}: ${s}`:""; }).filter(Boolean); if (lines.length) t += `\n${name}\n${lines.join("\n")}\n`; });
+  t += `\nPotencial (gestão ${brl(+c.pot.gestao||0)}, CPC R$ ${c.pot.cpc}, conversão ${c.pot.conv}%):\n` + potCalc(c).map(([b,s])=>`- ${s}: ${b}`).join("\n");
+  return t;
+}
+function fillText(key, c){
+  if (key === "briefing") return briefText(c);
+  let t = TXT[key];
+  if (key === "analise") t = t.replace("[cole aqui]", briefText(c));
+  t = t.replace(/\[empresa\]/g, c.nome);
+  if (c.briefing.responsavel) t = t.replace(/\[nome\]/g, c.briefing.responsavel.split(" ")[0]);
+  return t;
+}
+async function copy(text){ try { await navigator.clipboard.writeText(text); return true; } catch(e){ const ta=document.createElement("textarea"); ta.value=text; document.body.appendChild(ta); ta.select(); let ok=false; try{ok=document.execCommand("copy");}catch(_){} ta.remove(); return ok; } }
+
+/* ---------- eventos ---------- */
+function addClient(){
+  const c = newClient("Novo cliente"); clients[c.id] = c; cur = c.id; tab = "briefing"; persist(c.id, true); render();
+  const f = $("f-nome"); if (f) { f.focus(); f.select(); } toast("Digite o nome da empresa");
+}
+$("add").addEventListener("click", addClient);
+$("pick").addEventListener("change", e => { cur = e.target.value || null; tab = "processo"; render(); scrollTo(0,0); });
+document.addEventListener("click", async e => {
+  const o = e.target.closest("[data-open]"); if (o) { cur = o.dataset.open; tab = "processo"; render(); scrollTo(0,0); return; }
+  const tb = e.target.closest("[data-tab]"); if (tb) { tab = tb.dataset.tab; render(); return; }
+  const cp = e.target.closest("[data-copy]"); if (cp && cur) { toast(await copy(fillText(cp.dataset.copy, clients[cur])) ? "Copiado" : "Não foi possível copiar"); return; }
+  const a = e.target.closest("[data-act]"); if (!a) return;
+  if (a.dataset.act === "add") addClient();
+  if (a.dataset.act === "del" && cur && !a.dataset.sure) { a.dataset.sure = "1"; a.textContent = `Clique de novo para excluir ${clients[cur].nome}`; setTimeout(()=>{ if (a.isConnected) { delete a.dataset.sure; a.textContent = "Excluir cliente"; } }, 4000); return; }
+  if (a.dataset.act === "del" && cur) {
+    const id = cur; delete clients[id]; localPut(); cur = null; render();
+    if (store) { try { await store.del(id); } catch(err){} } toast("Cliente excluído");
+  }
+});
+document.addEventListener("input", e => {
+  if (!cur) return; const c = clients[cur], t = e.target;
+  if (t.dataset.b !== undefined) { c.briefing[t.dataset.b] = t.value; renderPot(c); persist(cur); return; }
+  if (t.dataset.p) { c.pot[t.dataset.p] = t.value; renderPot(c); persist(cur); return; }
+  if (t.id === "f-nome") { c.nome = t.value || "Sem nome"; renderPick(); persist(cur); return; }
+  if (t.id === "f-plan") { c.planilha = t.value.trim(); persist(cur); return; }
+});
+document.addEventListener("change", e => {
+  if (!cur) return; const c = clients[cur], t = e.target;
+  if (t.dataset.step) { c.checks[t.dataset.step] = t.checked; updateProg(c); persist(cur); return; }
+  if (t.dataset.bchk) { const k=t.dataset.bchk; const arr=Array.isArray(c.briefing[k])?[...c.briefing[k]]:[]; if(t.checked&&!arr.includes(t.value))arr.push(t.value); if(!t.checked){const i=arr.indexOf(t.value); if(i>-1)arr.splice(i,1);} c.briefing[k]=arr; persist(cur); return; }
+  if (t.id === "f-status") { c.status = t.value; persist(cur); return; }
+  if (t.id === "f-plano") { c.plano = t.value; persist(cur); return; }
+  if (t.id === "f-plan" && tab === "processo") renderProcess(c);
+});
+initStore();
+</script>
+</body>
+</html>
